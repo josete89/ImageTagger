@@ -1,0 +1,2 @@
+github "typelift/Swiftz"
+github "ReactiveX/RxSwift" ~> 4.0.0

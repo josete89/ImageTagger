@@ -2,9 +2,27 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>com.apple.security.app-sandbox</key>
-    <true/>
-    <key>com.apple.security.files.user-selected.read-only</key>
-    <true/>
+	<key>com.apple.security.app-sandbox</key>
+	<false/>
+	<key>com.apple.security.files.user-selected.read-only</key>
+	<true/>
+	<key>com.apple.security.temporary-exception.files.absolute-path.read-write
+
+Enables read/write access to the specified files or directories at specified absolute paths.
+
+com.apple.security.temporary-exception.files.absolute-path.read-write
+
+Enables read/write access to the specified files or directories at specified absolute paths.
+
+com.apple.security.temporary-exception.files.absolute-path.read-write
+
+Enables read/write access to the specified files or directories at specified absolute paths.
+
+com.apple.security.temporary-exception.files.absolute-path.read-write
+
+Enables read/write access to the specified files or directories at specified absolute paths.
+
+com.apple.security.temporary-exception.files.absolute-path.read-write</key>
+	<true/>
 </dict>
 </plist>

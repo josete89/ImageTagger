@@ -11,7 +11,53 @@
 		D8A733B51F49FA9700FE4072 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A733B41F49FA9700FE4072 /* ViewController.swift */; };
 		D8A733B71F49FA9700FE4072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8A733B61F49FA9700FE4072 /* Assets.xcassets */; };
 		D8A733BA1F49FA9700FE4072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A733B81F49FA9700FE4072 /* Main.storyboard */; };
+		D8A733D31F4A000F00FE4072 /* RxCocoa.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = D8A733CE1F4A000E00FE4072 /* RxCocoa.framework.dSYM */; };
+		D8A733D51F4A000F00FE4072 /* Swiftz.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = D8A733D01F4A000F00FE4072 /* Swiftz.framework.dSYM */; };
+		D8A733D61F4A000F00FE4072 /* RxBlocking.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = D8A733D11F4A000F00FE4072 /* RxBlocking.framework.dSYM */; };
+		D8A733D71F4A000F00FE4072 /* RxSwift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = D8A733D21F4A000F00FE4072 /* RxSwift.framework.dSYM */; };
+		D8A733D81F4A003F00FE4072 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A733C31F49FDFA00FE4072 /* RxBlocking.framework */; };
+		D8A733D91F4A003F00FE4072 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8A733C31F49FDFA00FE4072 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D8A733DA1F4A003F00FE4072 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A733C51F49FDFA00FE4072 /* RxCocoa.framework */; };
+		D8A733DB1F4A003F00FE4072 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8A733C51F49FDFA00FE4072 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D8A733DC1F4A003F00FE4072 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A733C41F49FDFA00FE4072 /* RxSwift.framework */; };
+		D8A733DD1F4A003F00FE4072 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8A733C41F49FDFA00FE4072 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D8A733E01F4A003F00FE4072 /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A733C61F49FDFA00FE4072 /* Swiftz.framework */; };
+		D8A733E11F4A003F00FE4072 /* Swiftz.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8A733C61F49FDFA00FE4072 /* Swiftz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D8A733E91F4A016D00FE4072 /* ReplacementSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A733E81F4A016D00FE4072 /* ReplacementSegue.swift */; };
+		D8C11A6F1F4A038B00BE49AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11A6E1F4A038B00BE49AE /* Constants.swift */; };
+		D8C11A711F4A1AFE00BE49AE /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11A701F4A1AFE00BE49AE /* ImageViewController.swift */; };
+		D8F6EBFF1F4B389F003F33BA /* CustomLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6EBFE1F4B389F003F33BA /* CustomLogic.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D8A733CD1F49FFBE00FE4072 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				D8A733D31F4A000F00FE4072 /* RxCocoa.framework.dSYM in CopyFiles */,
+				D8A733D51F4A000F00FE4072 /* Swiftz.framework.dSYM in CopyFiles */,
+				D8A733D61F4A000F00FE4072 /* RxBlocking.framework.dSYM in CopyFiles */,
+				D8A733D71F4A000F00FE4072 /* RxSwift.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8A733E21F4A003F00FE4072 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D8A733DB1F4A003F00FE4072 /* RxCocoa.framework in Embed Frameworks */,
+				D8A733D91F4A003F00FE4072 /* RxBlocking.framework in Embed Frameworks */,
+				D8A733E11F4A003F00FE4072 /* Swiftz.framework in Embed Frameworks */,
+				D8A733DD1F4A003F00FE4072 /* RxSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D8A733AF1F49FA9700FE4072 /* ImageTagger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageTagger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,6 +67,18 @@
 		D8A733B91F49FA9700FE4072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8A733BB1F49FA9700FE4072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8A733BC1F49FA9700FE4072 /* ImageTagger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageTagger.entitlements; sourceTree = "<group>"; };
+		D8A733C31F49FDFA00FE4072 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/Mac/RxBlocking.framework; sourceTree = "<group>"; };
+		D8A733C41F49FDFA00FE4072 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
+		D8A733C51F49FDFA00FE4072 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
+		D8A733C61F49FDFA00FE4072 /* Swiftz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swiftz.framework; path = Carthage/Build/Mac/Swiftz.framework; sourceTree = "<group>"; };
+		D8A733CE1F4A000E00FE4072 /* RxCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxCocoa.framework.dSYM; path = Carthage/Build/Mac/RxCocoa.framework.dSYM; sourceTree = "<group>"; };
+		D8A733D01F4A000F00FE4072 /* Swiftz.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Swiftz.framework.dSYM; path = Carthage/Build/Mac/Swiftz.framework.dSYM; sourceTree = "<group>"; };
+		D8A733D11F4A000F00FE4072 /* RxBlocking.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxBlocking.framework.dSYM; path = Carthage/Build/Mac/RxBlocking.framework.dSYM; sourceTree = "<group>"; };
+		D8A733D21F4A000F00FE4072 /* RxSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxSwift.framework.dSYM; path = Carthage/Build/Mac/RxSwift.framework.dSYM; sourceTree = "<group>"; };
+		D8A733E81F4A016D00FE4072 /* ReplacementSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplacementSegue.swift; sourceTree = "<group>"; };
+		D8C11A6E1F4A038B00BE49AE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D8C11A701F4A1AFE00BE49AE /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		D8F6EBFE1F4B389F003F33BA /* CustomLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +86,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A733DA1F4A003F00FE4072 /* RxCocoa.framework in Frameworks */,
+				D8A733D81F4A003F00FE4072 /* RxBlocking.framework in Frameworks */,
+				D8A733E01F4A003F00FE4072 /* Swiftz.framework in Frameworks */,
+				D8A733DC1F4A003F00FE4072 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +101,7 @@
 			children = (
 				D8A733B11F49FA9700FE4072 /* ImageTagger */,
 				D8A733B01F49FA9700FE4072 /* Products */,
+				D8A733C21F49FDFA00FE4072 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,14 +116,73 @@
 		D8A733B11F49FA9700FE4072 /* ImageTagger */ = {
 			isa = PBXGroup;
 			children = (
+				D8A733E31F4A008B00FE4072 /* Common */,
+				D8A733E41F4A009300FE4072 /* Modules */,
 				D8A733B21F49FA9700FE4072 /* AppDelegate.swift */,
-				D8A733B41F49FA9700FE4072 /* ViewController.swift */,
 				D8A733B61F49FA9700FE4072 /* Assets.xcassets */,
 				D8A733B81F49FA9700FE4072 /* Main.storyboard */,
 				D8A733BB1F49FA9700FE4072 /* Info.plist */,
 				D8A733BC1F49FA9700FE4072 /* ImageTagger.entitlements */,
 			);
 			path = ImageTagger;
+			sourceTree = "<group>";
+		};
+		D8A733C21F49FDFA00FE4072 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8A733D11F4A000F00FE4072 /* RxBlocking.framework.dSYM */,
+				D8A733CE1F4A000E00FE4072 /* RxCocoa.framework.dSYM */,
+				D8A733D21F4A000F00FE4072 /* RxSwift.framework.dSYM */,
+				D8A733D01F4A000F00FE4072 /* Swiftz.framework.dSYM */,
+				D8A733C31F49FDFA00FE4072 /* RxBlocking.framework */,
+				D8A733C51F49FDFA00FE4072 /* RxCocoa.framework */,
+				D8A733C41F49FDFA00FE4072 /* RxSwift.framework */,
+				D8A733C61F49FDFA00FE4072 /* Swiftz.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8A733E31F4A008B00FE4072 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D8A733E71F4A00AF00FE4072 /* Segue */,
+				D8C11A6E1F4A038B00BE49AE /* Constants.swift */,
+				D8F6EBFE1F4B389F003F33BA /* CustomLogic.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		D8A733E41F4A009300FE4072 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				D8A733E61F4A00A200FE4072 /* ImageTag */,
+				D8A733E51F4A009800FE4072 /* PathSelector */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		D8A733E51F4A009800FE4072 /* PathSelector */ = {
+			isa = PBXGroup;
+			children = (
+				D8A733B41F49FA9700FE4072 /* ViewController.swift */,
+			);
+			path = PathSelector;
+			sourceTree = "<group>";
+		};
+		D8A733E61F4A00A200FE4072 /* ImageTag */ = {
+			isa = PBXGroup;
+			children = (
+				D8C11A701F4A1AFE00BE49AE /* ImageViewController.swift */,
+			);
+			path = ImageTag;
+			sourceTree = "<group>";
+		};
+		D8A733E71F4A00AF00FE4072 /* Segue */ = {
+			isa = PBXGroup;
+			children = (
+				D8A733E81F4A016D00FE4072 /* ReplacementSegue.swift */,
+			);
+			path = Segue;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -73,6 +195,8 @@
 				D8A733AB1F49FA9700FE4072 /* Sources */,
 				D8A733AC1F49FA9700FE4072 /* Frameworks */,
 				D8A733AD1F49FA9700FE4072 /* Resources */,
+				D8A733CD1F49FFBE00FE4072 /* CopyFiles */,
+				D8A733E21F4A003F00FE4072 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +259,10 @@
 			files = (
 				D8A733B51F49FA9700FE4072 /* ViewController.swift in Sources */,
 				D8A733B31F49FA9700FE4072 /* AppDelegate.swift in Sources */,
+				D8C11A711F4A1AFE00BE49AE /* ImageViewController.swift in Sources */,
+				D8A733E91F4A016D00FE4072 /* ReplacementSegue.swift in Sources */,
+				D8C11A6F1F4A038B00BE49AE /* Constants.swift in Sources */,
+				D8F6EBFF1F4B389F003F33BA /* CustomLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +392,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImageTagger/ImageTagger.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = ImageTagger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.josete89.ImageTagger;
@@ -278,6 +410,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImageTagger/ImageTagger.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = ImageTagger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.josete89.ImageTagger;
