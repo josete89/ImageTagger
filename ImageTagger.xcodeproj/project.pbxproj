@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D80036F31F4F51C300CCDF5A /* FileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80036F21F4F51C300CCDF5A /* FileIO.swift */; };
 		D8A733B31F49FA9700FE4072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A733B21F49FA9700FE4072 /* AppDelegate.swift */; };
 		D8A733B51F49FA9700FE4072 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A733B41F49FA9700FE4072 /* ViewController.swift */; };
 		D8A733B71F49FA9700FE4072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8A733B61F49FA9700FE4072 /* Assets.xcassets */; };
@@ -26,7 +27,7 @@
 		D8A733E91F4A016D00FE4072 /* ReplacementSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A733E81F4A016D00FE4072 /* ReplacementSegue.swift */; };
 		D8C11A6F1F4A038B00BE49AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11A6E1F4A038B00BE49AE /* Constants.swift */; };
 		D8C11A711F4A1AFE00BE49AE /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11A701F4A1AFE00BE49AE /* ImageViewController.swift */; };
-		D8F6EBFF1F4B389F003F33BA /* CustomLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6EBFE1F4B389F003F33BA /* CustomLogic.swift */; };
+		D8F6EBFF1F4B389F003F33BA /* BussinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6EBFE1F4B389F003F33BA /* BussinessLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D80036F21F4F51C300CCDF5A /* FileIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileIO.swift; sourceTree = "<group>"; };
 		D8A733AF1F49FA9700FE4072 /* ImageTagger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageTagger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A733B21F49FA9700FE4072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8A733B41F49FA9700FE4072 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 		D8A733E81F4A016D00FE4072 /* ReplacementSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplacementSegue.swift; sourceTree = "<group>"; };
 		D8C11A6E1F4A038B00BE49AE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D8C11A701F4A1AFE00BE49AE /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
-		D8F6EBFE1F4B389F003F33BA /* CustomLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLogic.swift; sourceTree = "<group>"; };
+		D8F6EBFE1F4B389F003F33BA /* BussinessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BussinessLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +149,8 @@
 			children = (
 				D8A733E71F4A00AF00FE4072 /* Segue */,
 				D8C11A6E1F4A038B00BE49AE /* Constants.swift */,
-				D8F6EBFE1F4B389F003F33BA /* CustomLogic.swift */,
+				D8F6EBFE1F4B389F003F33BA /* BussinessLogic.swift */,
+				D80036F21F4F51C300CCDF5A /* FileIO.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -260,9 +263,10 @@
 				D8A733B51F49FA9700FE4072 /* ViewController.swift in Sources */,
 				D8A733B31F49FA9700FE4072 /* AppDelegate.swift in Sources */,
 				D8C11A711F4A1AFE00BE49AE /* ImageViewController.swift in Sources */,
+				D80036F31F4F51C300CCDF5A /* FileIO.swift in Sources */,
 				D8A733E91F4A016D00FE4072 /* ReplacementSegue.swift in Sources */,
 				D8C11A6F1F4A038B00BE49AE /* Constants.swift in Sources */,
-				D8F6EBFF1F4B389F003F33BA /* CustomLogic.swift in Sources */,
+				D8F6EBFF1F4B389F003F33BA /* BussinessLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

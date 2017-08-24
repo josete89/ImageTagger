@@ -15,6 +15,7 @@ final class ImageViewController: NSViewController {
     
     let disposeBag = DisposeBag()
     var path:String?
+    var didRewind:Bool = false
     
     let helper:Helper = Helper()
     lazy var state:ProgramState = {
@@ -22,13 +23,26 @@ final class ImageViewController: NSViewController {
         return ProgramState(path: path)
     }()
     
-    lazy var fileWriter:FileWriter<Data,Void> = {
+    lazy var fileWriter:FileIO<Data,Void> = {
         guard let path = self.path else {  fatalError() }
         let url = URL(fileURLWithPath: path, isDirectory: true)
             .appendingPathComponent("final_labels.txt")
-        return  FileWriter(path: url, f:self.helper.fileAppend)
+        return  FileIO(path: url, f:self.helper.fileAppend)
     }()
     
+    lazy var lineReplacer:FileIO<Data,Void> = {
+        guard let path = self.path else {  fatalError() }
+        let url = URL(fileURLWithPath: path, isDirectory: true)
+            .appendingPathComponent("final_labels.txt")
+        return FileIO(path: url, f:self.helper.fileReplaceLine)
+    }()
+    
+    lazy var fileSearcher:FileIO<String,String> = {
+        guard let path = self.path else {  fatalError() }
+        let url = URL(fileURLWithPath: path, isDirectory: true)
+            .appendingPathComponent("final_labels.txt")
+        return FileIO(path: url, f:self.helper.fileSearchLine)
+    }()
     
     
     @IBOutlet weak var imageCount: NSTextField!
@@ -36,6 +50,7 @@ final class ImageViewController: NSViewController {
     @IBOutlet weak var nameTextfield: NSTextField!
     @IBOutlet weak var nextButton: NSButton!
     @IBOutlet weak var imageView: NSImageView!
+    @IBOutlet weak var backButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +65,10 @@ final class ImageViewController: NSViewController {
         }
         updateUI()
         
+        let descriptionForState = curry(self.helper.getDescription)(self.fileSearcher)
+        let replaceAndNext = curry(self.helper.saveAndNext)(self.state)(self.lineReplacer)
+        let saveAndNext = curry(self.helper.saveAndNext)(self.state)(self.fileWriter)
+        
         closeButton.rx.tap
             .subscribe({ _ in
                 do{
@@ -62,14 +81,29 @@ final class ImageViewController: NSViewController {
                 
             }).addDisposableTo(disposeBag)
         
-
+        backButton.rx.tap
+            .filter({ self.helper.canGoBack(state: self.state)  })
+            .flatMap({ _ -> Observable<ProgramState> in
+                let newState = self.helper.rewind(state: self.state)
+                return Observable.just(newState)
+            }).subscribe({ state in
+                self.updateUI()
+                self.didRewind = true
+                self.nameTextfield.stringValue = descriptionForState(self.state)
+            }).addDisposableTo(disposeBag)
+        
         nextButton.rx.tap
             .filter({ !self.nameTextfield.stringValue.isEmpty })
             .map({ self.helper.getImageName(state: self.state) })
             .flatMap({ name -> Observable<Helper.NewState<Data,()>> in
                 let line:Helper.Line = (key:name,value:self.nameTextfield.stringValue)
                 let value = self.helper.transform(line)
-                let state = self.helper.saveAndNext(state: self.state, fileWriter: self.fileWriter, input: value)
+                let state:Helper.NewState<Data,()>
+                if self.didRewind {
+                    state = replaceAndNext(value)
+                }else{
+                    state = saveAndNext(value)
+                }
                 return Observable.just(state)
             }).subscribe({ state in
                 // set new states
@@ -78,6 +112,7 @@ final class ImageViewController: NSViewController {
                     self.fileWriter = element.1
                 }
                 self.updateUI()
+                self.didRewind = false
             }).addDisposableTo(disposeBag)
         
     }
@@ -85,7 +120,9 @@ final class ImageViewController: NSViewController {
     func updateUI(){
         self.imageCount.stringValue = helper.imageCountLabel § state
         self.imageView.image = helper.getImage § state
+        self.nameTextfield.stringValue = ""
     }
+    
     
     func recoverState(urlState:URL) -> ProgramState?{
         do{
