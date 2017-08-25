@@ -15,7 +15,6 @@ final class ImageViewController: NSViewController {
     
     let disposeBag = DisposeBag()
     var path:String?
-    var didRewind:Bool = false
     
     let helper:Helper = Helper()
     lazy var state:ProgramState = {
@@ -37,7 +36,7 @@ final class ImageViewController: NSViewController {
         return FileIO(path: url, f:self.helper.fileReplaceLine)
     }()
     
-    lazy var fileSearcher:FileIO<String,String> = {
+    lazy var fileSearcher:FileIO<String,String?> = {
         guard let path = self.path else {  fatalError() }
         let url = URL(fileURLWithPath: path, isDirectory: true)
             .appendingPathComponent("final_labels.txt")
@@ -63,11 +62,13 @@ final class ImageViewController: NSViewController {
             self.state = state
             print("State loaded")
         }
-        updateUI()
+        
         
         let descriptionForState = curry(self.helper.getDescription)(self.fileSearcher)
         let replaceAndNext = curry(self.helper.saveAndNext)(self.state)(self.lineReplacer)
         let saveAndNext = curry(self.helper.saveAndNext)(self.state)(self.fileWriter)
+        
+        updateUI(descriptionForState)
         
         closeButton.rx.tap
             .subscribe({ _ in
@@ -75,6 +76,7 @@ final class ImageViewController: NSViewController {
                     let data = try JSONEncoder().encode(self.state)
                     try data.write(to: urlState, options: Data.WritingOptions.atomic)
                     print("Saved!")
+                    self.view.window?.close()
                 }catch let error {
                     print("Cannot save sate! \(error.localizedDescription)")
                 }
@@ -87,9 +89,10 @@ final class ImageViewController: NSViewController {
                 let newState = self.helper.rewind(state: self.state)
                 return Observable.just(newState)
             }).subscribe({ state in
-                self.updateUI()
-                self.didRewind = true
-                self.nameTextfield.stringValue = descriptionForState(self.state)
+                if let element = state.element {
+                    self.state = element
+                }
+                self.updateUI(descriptionForState)
             }).addDisposableTo(disposeBag)
         
         nextButton.rx.tap
@@ -99,7 +102,7 @@ final class ImageViewController: NSViewController {
                 let line:Helper.Line = (key:name,value:self.nameTextfield.stringValue)
                 let value = self.helper.transform(line)
                 let state:Helper.NewState<Data,()>
-                if self.didRewind {
+                if descriptionForState(self.state) != nil {
                     state = replaceAndNext(value)
                 }else{
                     state = saveAndNext(value)
@@ -111,16 +114,16 @@ final class ImageViewController: NSViewController {
                     self.state = element.0
                     self.fileWriter = element.1
                 }
-                self.updateUI()
-                self.didRewind = false
+                self.updateUI(descriptionForState)
+                
             }).addDisposableTo(disposeBag)
         
     }
     
-    func updateUI(){
+    func updateUI(_ descriptFn:(ProgramState)->String?){
         self.imageCount.stringValue = helper.imageCountLabel § state
         self.imageView.image = helper.getImage § state
-        self.nameTextfield.stringValue = ""
+        self.nameTextfield.stringValue = descriptFn(self.state) ?? ""
     }
     
     

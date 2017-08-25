@@ -71,16 +71,16 @@ struct Helper {
         state.currentIndex -= 1
         return state
     }
-    private func getLineDescription(line:String) -> String {
-        guard let desc = line.componentsSeparatedByString(":").last
+    private func getLineDescription(line:String?) -> String? {
+        guard let desc = line?.componentsSeparatedByString(":").last
             else {
-                print("Cannot get line content from -> -\(line)-")
-                return ""
+                print("Cannot get line content from -> -\(String(describing: line))-")
+                return nil
             }
         return desc
     }
     
-    func getDescription(fileReader:FileIO<String,String>,state:ProgramState)-> String{
+    func getDescription(fileReader:FileIO<String,String?>,state:ProgramState)-> String? {
         let id = state
             .directoryContent[state.currentIndex]
             .deletingPathExtension()
@@ -89,12 +89,13 @@ struct Helper {
         return fileReader.apply(id) |> getLineDescription
     }
     
-    func fileSearchLine(_ fileHandle:FileHandle,by id:String) -> String {
-        let fileData = fileHandle.availableData
+    func fileSearchLine(_ fileHandle:FileHandle,by id:String) -> String? {
+        fileHandle.seek(toFileOffset: 0)
+        let fileData = fileHandle.readDataToEndOfFile()
         guard let currentData = String(data: fileData, encoding: .utf8)
             else {
                 print("Cannot read file")
-                return ""
+                return nil
             }
         guard let line = currentData
             .componentsSeparatedByString("\n")
@@ -102,7 +103,7 @@ struct Helper {
             .first
             else {
                 print("Cannot find the line")
-                return ""
+                return nil
             }
         
         return line
@@ -110,6 +111,7 @@ struct Helper {
     
     func fileReplaceLine(fileHandle:FileHandle,data:Data){
         
+        fileHandle.seek(toFileOffset: 0)
         let fileData = fileHandle.readDataToEndOfFile()
         
         guard let dataToReplace = String(data: data, encoding: .utf8),
@@ -124,11 +126,12 @@ struct Helper {
             if line.contains(id){
                 return dataToReplace
             }
-            return line
+            return line + "\n"
         }
         
         guard let newData = currentData
             .componentsSeparatedByString("\n")
+            .filter({!$0.isEmpty})
             .map(replaceIfNeeds)
             .joined()
             .data(using: .utf8)
